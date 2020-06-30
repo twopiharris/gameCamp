@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html lang = "en-us">
+<head>
+  <title>Twine Harlowe Formatting commands</title>
+  <meta charset = "utf-8">
+</head>
+<body>
+<h1>Formatting Twine with Harlowe</h1>
+
+<h2>Markdown</h2>
+
+<h3>Headlines</h3>
+<pre>
+#Headline level 1
+##Headlne level 2
+###Headline level 3
+</pre>
+
+<h3>Text formatting</h3>
+<pre>
+''bold''
+//italic//
+~~strikethrough~~
+*emphasis*
+**strong emphasis**
+</pre>
+
+<h3>Alighnment</h3>
+<pre>
+==>
+right justified
+<==
+left justified
+==><==
+centered
+===><= 
+3/4
+</pre>
+
+<h3>Lists</h3>
+<pre>
+* bullet list item A
+* bullet list item B
+** bullet list item B1
+** bullet list item B2
+* bullet list item C
+
+0. numbered list A
+0. numbered list B
+0.0. numbered list B1
+0.0. numbered list B2
+0. numbered list C
+</pre>
+
+<h2>Macros</h2>
+
+<h3>Colors</h3>
+<pre>
+(color: red)[this text is red]
+(color: green)[this text is green]
+(background: yellow)[this text has a yellow background]
+(color: black)[
+  (background: yellow)[black text on a yellow background]
+]
+</pre>
+
+<h3>Fonts</h3>
+<pre>
+This is the standard font
+Generic fonts:
+* (font: "serif")[serif]
+* (font: "sans-serif")[sans-serif]
+* (font: "cursive")[cursive]
+* (font: "fantasy")[fantasy]
+* (font: "monospace")[monospace]
+
+(font: "Pangolin")[This is a custom font(see CSS)]
+</pre>
+
+<h3>Text Styles</h3>
+<pre>
+(text-style:"bold")[bold]
+(text-style:"outline")[outline]
+(text-style:"shadow")[shadow]
+(text-style:"emboss")[emboss]
+(text-style:"condense")[condense]
+(text-style:"expand")[expand]
+(text-style:"blur")[blur]
+(text-style:"blurrier")[blurrier]
+(text-style:"smear")[smear]
+(text-style:"mirror")[mirror]
+(text-style:"upside-down")[upside-down]
+(text-style:"blink")[blink]
+(text-style:"fade-in-out")[fade-in-out]
+(text-style:"rumble")[rumble]
+(text-style:"shudder")[shudder]
+</pre>
+
+<h2>Web Technologies</h2>
+<h3>Adding an image</h3>
+<pre>
+&lt;img src = "https://live.staticflickr.com/2230/2212005662_22fd2bc4da_b.jpg"
+     alt = "magnificent emu" 
+	 height = 300
+	 width = 300/>
+</pre>
+<p>
+You can change the src to whatever image you can find on the web.  You can also adjust the height and width.
+</p>
+
+<h3>Style sheets</h3>
+<p>
+Edit the style sheet of your entire game.  You can modify this one 
+as a starting place
+</p>
+<pre>
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+tw-story {
+  background-color: purple;
+  color: red;
+  font-family: Orbitron;
+}
+
+tw-link {
+  color: #ffff00;
+}
+
+.visited {
+  color: #ffff00;
+}
+
+.hover {
+  color: #ff0000;
+}
+</pre>
+<p>
+Visit 
+<a href = "http://fonts.google.com">fonts.google.com</a>
+to find new fonts to use.
+</p>
+</body>
+</html>
+   
+
