@@ -41,6 +41,47 @@
   ]
   </pre>
   
+  <h2>Combat set-up</h2>
+  <pre>
+  (set: $weapon to "dagger")
+  (set: $myMaxDamage to 3)
+  (set: $myHP to 30)
+  (set: $eMaxDamage to 3)
+  (set: $eHP to 40)
+  </pre>
+  
+  <h2>Combat</h2>
+  <pre>
+  (set: $myDamage to (random: 1, $myMaxDamage))
+  (set: $eDamage to (random: 1, $eMaxDamage))
+  (set: $eHP to $eHP - $myDamage)
+  (set: $myHP to $myHP - $eDamage)
+  You hit the ogre with your $weapon.
+  You do $myDamage points of damage to the Ogre.
+  The Ogre does $eDamage points of damage to you.
+  Your HP: $myHP
+  Ogre HP: $eHP
+  (if: $eHP <= 0)[
+    [[You defeated the Ogre!->start]]
+  ](else-if: $myHP <= 0)[
+    [[You were defeated by the Ogre->start]]
+  ](else:)[
+    [[Hit the Ogre with your $weapon->fight]]
+    [[Run away->run]]
+  ]
+  </pre>
+  
+  <h2>Combat upgrade weapon</h2>
+  <pre>
+  (set: $weapon to "sword")
+  (set: $myMaxDamage to 6)
+  </pre>
+  
+  <h2>Combat health potion</h2>
+  <pre>
+  (set: $myHP to $myHP + 10)
+  </pre>
+  
   
 </body>
 </html>
