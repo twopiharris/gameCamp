@@ -18,5 +18,29 @@
   (set: $player to (prompt: "What is your name", "default"))
   (set: $number to (num: (prompt: "Pick a number between 1 and 10", "5")))
   </pre>
+  
+  <h2>Rolling a random number</h2>
+  <pre>
+  (set: $die to (random: 1, 6))
+  (set: $percentage to (random: 1, 100))
+  </pre>
+  
+  <h2>If / Else</h2>
+  <pre>
+  (set: $player to (prompt("What is your name? ", ""))
+  (if: $player is "Andy)[
+    Are you the teacher of this class?
+  ](else)[
+    Have you seen Andy around?
+  ]
+  
+  (if: $hasKey is true)[
+    [[open the door->open]]
+  ] (else:) [
+    [[look for the key->search]]
+  ]
+  </pre>
+  
+  
 </body>
 </html>
