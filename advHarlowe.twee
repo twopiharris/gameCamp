@@ -1,0 +1,121 @@
+:: StoryTitle
+advHarlowe
+
+
+:: StoryData
+{
+  "ifid": "43B70DEF-DBE8-4961-B9FB-C6068D526E82",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "start",
+  "zoom": 1
+}
+
+
+:: a {"position":"1300,200","size":"100,100"}
+Passage A is not directly connected to the graph
+
+
+
+:: b {"position":"1300,325","size":"100,100"}
+Passage b is not connected either
+
+
+:: display {"position":"500,500","size":"100,100"}
+(display: "a")
+(display: "b")
+
+The time was (display: "timeOfDay")
+(display: "stats")
+
+
+:: greet {"position":"1050,625","size":"100,100"}
+Hi $name!
+Your back story is $story
+(set: $number to (num: $number))
+The square root of $number is (sqrt: $number)
+
+[[back to input->input]]
+
+
+
+:: health {"position":"975,325","size":"100,100"}
+Health:
+(meter: bind $hp, 10, "X", "hp: $hp", green)
+(meter: bind $hp, 10, "X", "hp: $hp", (gradient: 0, 0, red, .25, orange, 0.5, green ,1, green) )
+{
+(link-repeat: "take damage<br\>")[
+  (if: $hp > 1)[
+    (set: $hp to $hp - 1)
+  ] (else:) [
+    (go-to: "lose")
+  ]
+]
+
+(link-repeat: "heal")[
+  (if: $hp < 10)[
+    (set: $hp to $hp + 1)
+  ]
+]
+}
+
+
+
+:: input {"position":"1050,500","size":"100,100"}
+Name: (input: bind $name)
+Back story: (input-box: bind $story)
+Number: (input: bind $number)
+[[greet]]
+
+
+:: links {"position":"900,500","size":"100,100"}
+(link: "don't click me")[Ouch! You clicked me]
+
+(link-rerun: "Roll")[
+  (set: _roll to (random: 1, 6))
+  You rolled a _roll
+]
+
+(cycling-link: bind _size, "small", "medium", "large")
+(link-rerun: "order: ")[You chose the _size one]
+
+
+:: lose {"position":"1100,150","size":"100,100"}
+You lost the game. 
+
+[[start again->start]]
+
+
+:: start {"position":"800,325","size":"100,100"}
+(set: $hp to 10)
+(set: $maxDamage to 3)
+
+Advanced Harlowe techniques
+[[using display->display]]
+[[setting a style->style]]
+[[custom links->links]]
+[[user input->input]]
+[[health bar->health]]
+
+(link: "Enable debug mode")[(debug:)]
+
+
+:: stats {"position":"1300,575","size":"100,100"}
+(float-box: "===X", "Y===")+(border: "solid")+(color: green)+(bg: gray)[
+stats:
+Health: $hp/10
+Max Damage: $maxDamage
+]
+
+
+:: style {"position":"700,500","size":"100,100"}
+(color: red) + (bg: white)[red text on a white background]
+(set: $myStyle to (color: green) + (bg: white))
+
+$myStyle[this is using mystyle]
+
+
+
+
+:: timeOfDay {"position":"1300,450","size":"100,100"}
+(either: "morning", "noon", "afternoon", "evening", "nighttime")
