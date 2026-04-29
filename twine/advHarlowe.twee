@@ -39,7 +39,7 @@ The square root of $number is (sqrt: $number)
 
 
 
-:: health {"position":"975,325","size":"100,100"}
+:: health {"position":"1000,325","size":"100,100"}
 Health:
 (meter: bind $hp, 10, "X", "hp: $hp", green)
 (meter: bind $hp, 10, "X", "hp: $hp", (gradient: 0, 0, red, .25, orange, 0.5, green ,1, green) )
@@ -102,11 +102,13 @@ Advanced Harlowe techniques
 
 
 :: stats {"position":"1300,575","size":"100,100"}
+{
 (float-box: "====X", "Y==")+(border: "solid")+(color: #006600)+(bg: #cccccc)[
-stats:
-Health: $hp/10
+stats:<hr>
+Health: $hp/10<br/>
 Max Damage: $maxDamage
 ]
+}
 
 
 :: style {"position":"500,500","size":"100,100"}
