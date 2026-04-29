@@ -21,7 +21,7 @@ Passage A is not directly connected to the graph
 Passage b is not connected either
 
 
-:: display {"position":"500,500","size":"100,100"}
+:: display {"position":"700,500","size":"100,100"}
 (display: "a")
 (display: "b")
 
@@ -29,7 +29,7 @@ The time was (display: "timeOfDay")
 (display: "stats")
 
 
-:: greet {"position":"1050,625","size":"100,100"}
+:: greet {"position":"1050,650","size":"100,100"}
 Hi $name!
 Your back story is $story
 (set: $number to (num: $number))
@@ -70,17 +70,18 @@ Number: (input: bind $number)
 
 :: links {"position":"900,500","size":"100,100"}
 (link: "don't click me")[Ouch! You clicked me]
-
-(link-rerun: "Roll")[
+(link: "start over")[(go-to: "start")]
+{
+(link-rerun: "Roll: <br/>")[
   (set: _roll to (random: 1, 6))
   You rolled a _roll
 ]
-
+}
 (cycling-link: bind _size, "small", "medium", "large")
 (link-rerun: "order: ")[You chose the _size one]
 
 
-:: lose {"position":"1100,150","size":"100,100"}
+:: lose {"position":"1100,200","size":"100,100"}
 You lost the game. 
 
 [[start again->start]]
@@ -91,29 +92,28 @@ You lost the game.
 (set: $maxDamage to 3)
 
 Advanced Harlowe techniques
-[[using display->display]]
 [[setting a style->style]]
+[[using display->display]]
 [[custom links->links]]
 [[user input->input]]
 [[health bar->health]]
 
-(link: "Enable debug mode")[(debug:)]
+(color:yellow)[(link:"View in debug mode")[(debug:)]]
 
 
 :: stats {"position":"1300,575","size":"100,100"}
-(float-box: "===X", "Y===")+(border: "solid")+(color: green)+(bg: gray)[
+(float-box: "====X", "Y==")+(border: "solid")+(color: #006600)+(bg: #cccccc)[
 stats:
 Health: $hp/10
 Max Damage: $maxDamage
 ]
 
 
-:: style {"position":"700,500","size":"100,100"}
+:: style {"position":"500,500","size":"100,100"}
 (color: red) + (bg: white)[red text on a white background]
 (set: $myStyle to (color: green) + (bg: white))
 
 $myStyle[this is using mystyle]
-
 
 
 
